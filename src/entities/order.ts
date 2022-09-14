@@ -6,7 +6,9 @@ import {
   OneToOne,
   JoinColumn,
   Column,
-  OneToMany
+  OneToMany,
+  CreateDateColumn,
+  DeleteDateColumn
 } from 'typeorm'
 import { User } from './user'
 import { Product } from './product'
@@ -28,4 +30,10 @@ export class Order extends BaseEntity {
 
   @Column()
   units: number
+
+  @CreateDateColumn()
+  created_at: Date
+
+  @DeleteDateColumn()
+  deleted_at: Date
 }

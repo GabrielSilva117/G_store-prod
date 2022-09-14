@@ -4,7 +4,10 @@ import {
   PrimaryGeneratedColumn,
   BaseEntity,
   OneToMany,
-  Entity
+  Entity,
+  CreateDateColumn,
+  DeleteDateColumn,
+  UpdateDateColumn
 } from 'typeorm'
 import { Product } from './product'
 
@@ -23,4 +26,13 @@ export class Stock extends BaseEntity {
 
   @OneToMany(() => Product, (product) => product.stock)
   product: Product[]
+
+  @CreateDateColumn()
+  created_at: Date
+
+  @UpdateDateColumn()
+  updated_at: Date
+
+  @DeleteDateColumn()
+  deleted_at: Date
 }
